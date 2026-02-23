@@ -25,7 +25,7 @@
             color: white;
             background: transparent;
             border: 1px solid white;
-            padding: 5px 12px;
+            padding: 8px 16px;
             margin-left: 8px;
             border-radius: 4px;
             cursor: pointer;
@@ -36,6 +36,53 @@
             color: #0F2B47;
             font-weight: bold;
         }
+
+        /* MENU NAVIGATION */
+        .navbar {
+            background-color: #0F2B47;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #A0C4E8;
+        }
+
+        /* Menu hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
         .logo-area {
             text-align: center;
             padding: 20px;
@@ -48,33 +95,34 @@
         header {
             background-color: #0F2B47;
             color: white;
-            padding: 40px 20px;
+            padding: 30px 15px;
             text-align: center;
         }
         header h1 {
-            font-size: 26px;
+            font-size: 22px;
             margin-bottom: 10px;
         }
         header p {
-            font-size: 18px;
+            font-size: 16px;
             opacity: 0.9;
         }
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 15px;
         }
         .card {
             background: white;
             border-radius: 12px;
-            padding: 35px;
-            margin-bottom: 30px;
+            padding: 25px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            scroll-margin-top: 100px;
         }
         .card h2 {
             color: #0F2B47;
-            margin-bottom: 20px;
-            font-size: 22px;
+            margin-bottom: 15px;
+            font-size: 20px;
             border-left: 5px solid #2A72B9;
             padding-left: 12px;
         }
@@ -88,7 +136,7 @@
         .contact {
             background-color: #EAF2FA;
             text-align: center;
-            padding: 35px;
+            padding: 25px;
             border-radius: 12px;
         }
         .contact strong {
@@ -99,6 +147,39 @@
         }
         .lang-content.active {
             display: block;
+        }
+
+        /* IMAGES SECTIONS */
+        .section-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        /* Media Queries pour les écrans plus petits */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #0F2B47;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                display: none;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .logo {
+                width: 180px;
+            }
         }
     </style>
 </head>
@@ -113,23 +194,44 @@
 
 <!-- Logo -->
 <div class="logo-area">
-    <img class="logo" src="logo.jpg" alt="Logo GUANGZHOU SOUTH BRIDGE">
+    <img class="logo" src="https://i.imgur.com/YSWjZJg.png" alt="Logo GUANGZHOU SOUTH BRIDGE">
 </div>
+
+<!-- MENU DE NAVIGATION -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#tourisme">Tourisme d'Affaires</a></li>
+            <li><a href="#admission">Admission & Bourses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
 <!-- Contenu français -->
 <div id="fr" class="lang-content active">
-    <header>
+    <header id="accueil">
         <h1>GUANGZHOU SOUTH BRIDGE International Trade Co., Ltd.</h1>
         <p>Votre Partenaire Pont vers la Chine</p>
     </header>
     <div class="container">
-        <div class="card">
+
+        <div class="card" id="apropos">
             <h2>Qui sommes-nous ?</h2>
             <p>Basée à Guangzhou, l'une des plaques tournantes du commerce et de la manufacture en Chine, Guangzhou SOUTH Bridge International Trade Co., Ltd. est une société spécialisée dans le sourcing et le développement de produits pour les marchés internationaux.</p>
             <br>
             <p>Notre nom incarne notre mission : "SOUTH Bridge" signifie que nous construisons un pont solide et fiable entre les fournisseurs chinois et nos clients à travers le monde.</p>
         </div>
-        <div class="card">
+
+        <div class="card" id="services">
             <h2>Notre Cœur de Métier</h2>
             <p>Nous ne sommes pas simplement une société de trading classique; nous sommes votre bureau d'achat et d'assistance locale en Chine. Nous gérons pour vous toute la complexité de la chaîne d'approvisionnement, de l'idée initiale jusqu'à la sortie d'usine.</p>
             <br>
@@ -142,136 +244,188 @@
                 <li>Logistique documentaire : Préparation de tous les documents d'exportation pour une transition fluide vers votre transitaire.</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>Notre Valeur Ajoutée</h2>
+
+        <div class="card" id="tourisme">
+            <h2>Service Tourisme d'Affaires</h2>
+            <img class="section-img" src="https://i.imgur.com/8zYFZdX.jpg" alt="Tourisme d'Affaires Canton Fair Guangzhou">
+            <p>Nous étendons notre expertise pour vous accompagner durant vos séjours professionnels en Chine. Nous nous occupons de tout pour que votre voyage soit fluide, sécurisé et productif.</p>
+            <br>
+            <p><strong>Nos prestations touristiques & logistiques :</strong></p>
             <ul>
-                <li>Proximité et Réactivité : Être sur place à Guangzhou nous permet de visiter les usines, négocier en face-à-face et résoudre les problèmes immédiatement.</li>
-                <li>Maîtrise de la Langue et de la Culture : Nous éliminons les barrières linguistiques et culturelles pour éviter les malentendus avec les fournisseurs.</li>
-                <li>Indépendance logistique : Nous travaillons main dans la main avec votre transitaire ou vous conseillons des partenaires de confiance.</li>
+                <li>Organisation complète de vos voyages d’affaires à Guangzhou et dans le Delta de la Rivière des Perles.</li>
+                <li>Réservation d’hôtels, transferts aéroport / hôtel / usines avec chauffeur.</li>
+                <li>Accompagnement lors des visites d’usines et des rendez-vous fournisseurs.</li>
+                <li>Assistance pendant la Canton Fair et autres salons professionnels.</li>
+                <li>Support multilingue (français / anglais / chinois) 24h/24 sur place.</li>
+                <li>Conseils pratiques, administratifs et culturels pour votre séjour.</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>Notre Engagement</h2>
-            <p>Chez Guangzhou SOUTH Bridge, nous croyons en la transparence et la confiance. Notre objectif est de faire en sorte que vos achats en Chine soient une expérience simple, sécurisée et rentable.</p>
+
+        <div class="card" id="admission">
+            <h2>Admission & Bourses en Chine</h2>
+            <img class="section-img" src="https://i.imgur.com/6LrG4aY.jpg" alt="Université Chine Étudiants Étrangers">
+            <p>Nous accompagnons les étudiants étrangers dans leur projet d’études en Chine : universités, lycées, formations professionnelles, et obtention de bourses d’études.</p>
+            <br>
+            <p><strong>Nos services d’accompagnement :</strong></p>
+            <ul>
+                <li>Conseil et orientation dans le choix de l’établissement et de la formation.</li>
+                <li>Dossier d’admission complet pour les universités chinoises.</li>
+                <li>Recherche et candidature aux bourses gouvernementales et universitaires.</li>
+                <li>Assistance pour la demande de visa étudiant.</li>
+                <li>Accueil et intégration à l’arrivée en Chine.</li>
+                <li>Suivi administratif et scolaire pendant la durée des études.</li>
+            </ul>
         </div>
-        <div class="contact">
-            <h2>Contact</h2>
+
+        <div class="card contact" id="contact">
+            <h2>Contactez-nous</h2>
+            <p><strong>GUANGZHOU SOUTH BRIDGE International Trade Co., Ltd.</strong></p>
+            <p>Guangzhou, Chine</p>
+            <br>
+            <p><strong>Email :</strong> yingli34@qq.com</p>
             <p><strong>Téléphone / WhatsApp :</strong> +86 131 2937 2649</p>
-            <p><strong>E-mail :</strong> yingli34@qq.com</p>
+            <br>
+            <p>Nous répondons à vos demandes dans les 24h.</p>
         </div>
+
     </div>
 </div>
 
-<!-- Contenu anglais -->
+<!-- English version -->
 <div id="en" class="lang-content">
-    <header>
+    <header id="accueil">
         <h1>GUANGZHOU SOUTH BRIDGE International Trade Co., Ltd.</h1>
         <p>Your Bridge to China</p>
     </header>
     <div class="container">
-        <div class="card">
-            <h2>Who We Are</h2>
-            <p>Based in Guangzhou, one of China's leading hubs for trade and manufacturing, Guangzhou SOUTH Bridge International Trade Co., Ltd. specializes in sourcing and product development for global markets.</p>
-            <br>
-            <p>Our name embodies our mission: "SOUTH Bridge" means we build a solid and reliable bridge between Chinese suppliers and our clients worldwide.</p>
+        <div class="card" id="apropos">
+            <h2>About Us</h2>
+            <p>Based in Guangzhou, China, we are a professional sourcing and trading company, acting as your local representative in China.</p>
         </div>
-        <div class="card">
-            <h2>Our Core Business</h2>
-            <p>We are not just a traditional trading company; we are your local purchasing and support office in China. We handle all the complexity of the supply chain for you, from the initial idea to the factory exit.</p>
-            <br>
-            <p><strong>Our key services:</strong></p>
+        <div class="card" id="services">
+            <h2>Our Services</h2>
             <ul>
-                <li>Smart Sourcing: Finding specialized suppliers that match your quality and budget criteria.</li>
-                <li>Product Development (OEM): Supporting you in customizing your products and manufacturing to your specifications.</li>
-                <li>Production Management: Rigorous order tracking to ensure deadlines are met.</li>
-                <li>Quality Control: In-process and pre-shipment inspections to secure your purchases.</li>
-                <li>Documentation & Logistics: Preparing all export documents (certificates of origin, invoices, etc.) for a smooth transition to your freight forwarder.</li>
+                <li>Sourcing & Supplier Verification</li>
+                <li>OEM & Product Development</li>
+                <li>Production Follow-up</li>
+                <li>Quality Control</li>
+                <li>Logistics & Export Documentation</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>Our Added Value</h2>
+        <div class="card" id="tourisme">
+            <h2>Business Travel & Tourism</h2>
+            <img class="section-img" src="https://i.imgur.com/8zYFZdX.jpg" alt="Business Travel Canton Fair Guangzhou">
+            <p>We organize your business trips in China: hotel, transport, factory visits, Canton Fair support, local assistance.</p>
             <ul>
-                <li>Proximity & Responsiveness: Being on the ground in Guangzhou allows us to visit factories, negotiate face-to-face, and resolve issues immediately.</li>
-                <li>Language & Cultural Expertise: We eliminate linguistic and cultural barriers to avoid misunderstandings with suppliers.</li>
-                <li>Logistics Independence: We work hand-in-hand with your freight forwarder or advise you on trusted partners, giving you control over your freight costs.</li>
+                <li>Full business travel organization in Guangzhou and Pearl River Delta</li>
+                <li>Hotel booking, airport/hotel/factory transfers</li>
+                <li>Factory visits & supplier meetings</li>
+                <li>Canton Fair & professional fairs support</li>
+                <li>Multilingual assistance 24/7</li>
+                <li>Practical & cultural advice</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>Our Commitment</h2>
-            <p>At Guangzhou SOUTH Bridge, we believe in transparency and trust. Our goal is to make your purchasing experience in China simple, secure, and profitable.</p>
+        <div class="card" id="admission">
+            <h2>Admission & Scholarships in China</h2>
+            <img class="section-img" src="https://i.imgur.com/6LrG4aY.jpg" alt="University China Foreign Students">
+            <p>We support international students for studies in China: universities, applications, scholarship search and visa assistance.</p>
+            <ul>
+                <li>Study guidance and school selection</li>
+                <li>Complete admission application</li>
+                <li>Government & university scholarship support</li>
+                <li>Student visa assistance</li>
+                <li>Welcome & integration in China</li>
+                <li>Administrative & academic support</li>
+            </ul>
         </div>
-        <div class="contact">
-            <h2>Contact</h2>
-            <p><strong>Phone / WhatsApp:</strong> +86 131 2937 2649</p>
-            <p><strong>E-mail:</strong> yingli34@qq.com</p>
+        <div class="card contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: yingli34@qq.com</p>
+            <p>Phone / WhatsApp: +86 131 2937 2649</p>
         </div>
     </div>
 </div>
 
-<!-- Contenu chinois -->
+<!-- 中文版本 -->
 <div id="zh" class="lang-content">
-    <header>
+    <header id="accueil">
         <h1>广州南桥国际贸易有限公司</h1>
-        <p>您连接中国的可靠桥梁</p>
+        <p>连接世界与中国的可靠桥梁</p>
     </header>
     <div class="container">
-        <div class="card">
-            <h2>关于我们</h2>
-            <p>广州南桥国际贸易有限公司位于中国重要的贸易与制造业中心——广州，是一家专业为全球市场提供产品采购与开发服务的企业。</p>
-            <br>
-            <p>我们的名称“南桥”（SOUTH Bridge）正体现了我们的使命：在全球客户与中国供应商之间，搭建一座坚实可靠的贸易桥梁。</p>
+        <div class="card" id="apropos">
+            <h2>公司简介</h2>
+            <p>广州南桥国际贸易有限公司位于广州，为全球客户提供专业采购、产品开发、质量控制及物流服务。</p>
         </div>
-        <div class="card">
+        <div class="card" id="services">
             <h2>核心业务</h2>
-            <p>我们并非传统意义上的贸易公司，而是您在中国的本地采购与支持办公室。我们为您处理供应链中的所有复杂环节，从最初的产品构思到最终的工厂出货。</p>
-            <br>
-            <p><strong>我们的核心服务：</strong></p>
             <ul>
-                <li>智能采购：根据您的质量与预算要求，精准匹配专业供应商。</li>
-                <li>产品开发（OEM）：为您提供产品定制与专属生产的全程支持。</li>
-                <li>生产管理：严格跟踪订单，确保交货期得到遵守。</li>
-                <li>质量控制：生产过程及出货前的检验，保障您的采购安全。</li>
-                <li>文件与物流：准备所有出口文件（原产地证、发票等），确保与您的货运代理无缝衔接。</li>
+                <li>产品采购与供应商开发</li>
+                <li>OEM产品定制</li>
+                <li>生产跟进与进度管理</li>
+                <li>质量检验</li>
+                <li>出口文件及物流</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>我们的增值服务</h2>
+        <div class="card" id="tourisme">
+            <h2>商务旅行服务</h2>
+            <img class="section-img" src="https://i.imgur.com/8zYFZdX.jpg" alt="广交会 商务旅行">
+            <p>我们提供中国商务旅行安排：酒店、交通、工厂参观、广交会陪同、本地翻译与协助。</p>
             <ul>
-                <li>本地化与响应力：立足广州，让我们能够实地考察工厂、面对面谈判，并即时解决问题。</li>
-                <li>语言与文化精通：消除语言和文化障碍，避免与供应商产生误解。</li>
-                <li>物流独立性：与您的货运代理紧密合作，或为您推荐可靠的合作伙伴，让您掌控货运成本。</li>
+                <li>广州及珠三角地区商务旅行全程安排</li>
+                <li>酒店预订、机场/酒店/工厂接送</li>
+                <li>工厂参观与供应商洽谈陪同</li>
+                <li>广交会及各类展会支持</li>
+                <li>24小时多语种协助</li>
+                <li>生活与文化指导</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>我们的承诺</h2>
-            <p>在广州南桥，我们坚信透明与信任。我们的目标是让您在中国的采购体验变得简单、安全且有利可图。</p>
+        <div class="card" id="admission">
+            <h2>留学申请与奖学金</h2>
+            <img class="section-img" src="https://i.imgur.com/6LrG4aY.jpg" alt="中国留学 外国留学生">
+            <p>我们协助外国学生申请中国大学、高中及专业院校，并提供奖学金申请服务。</p>
+            <ul>
+                <li>学校与专业选择咨询</li>
+                <li>大学入学申请全程办理</li>
+                <li>中国政府及校级奖学金申请</li>
+                <li>学生签证协助</li>
+                <li>来华接机与入学安排</li>
+                <li>在华学习与生活支持</li>
+            </ul>
         </div>
-        <div class="contact">
-            <h2>联系方式</h2>
-            <p><strong>电话 / WhatsApp：</strong> +86 131 2937 2649</p>
-            <p><strong>电子邮箱：</strong> yingli34@qq.com</p>
+        <div class="card contact" id="contact">
+            <h2>联系我们</h2>
+            <p>邮箱: yingli34@qq.com</p>
+            <p>电话 / WhatsApp: +86 131 2937 2649</p>
         </div>
     </div>
 </div>
 
 <script>
-    // Gestion du changement de langue
-    const buttons = document.querySelectorAll('.lang-btn');
-    const contents = document.querySelectorAll('.lang-content');
-
-    buttons.forEach(btn => {
+    // Switch langue
+    const btns = document.querySelectorAll('.lang-btn');
+    btns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Retirer la classe active de tous les boutons et contenus
-            buttons.forEach(b => b.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
-
-            // Ajouter la classe active au bouton cliqué et au contenu correspondant
-            const lang = btn.getAttribute('data-lang');
-            btn.classList.add('active');
+            const lang = btn.dataset.lang;
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(lang).classList.add('active');
+            btn.classList.add('active');
+        });
+    });
 
-            // Mettre à jour l'attribut lang de la page
-            document.documentElement.setAttribute('lang', lang);
+    // Menu hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Fermer le menu lors du clic sur un lien
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
     });
 </script>
